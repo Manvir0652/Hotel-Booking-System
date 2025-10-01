@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="register-page">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="site-name">TRAVELIX</span>
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/login" class="nav-btn">Login</a>
+    </div>
+
+    <!-- Form -->
+    <div class="container">
+        <form th:action="@{/register}" method="post" class="form-box">
+            <h1 class="welcome-neon">Register</h1>
+
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Name</label>
+            <input type="text" name="name" required>
+
+            <label>Role</label>
+            <select name="role" required>
+                <option value="USER">Normal User</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+
+            <button type="submit">Register</button>
+
+            <a href="/login" class="btn">Login</a>
+
+            <p th:if="${message}" th:text="${message}" class="message success"></p>
+            <p th:if="${error}" th:text="${error}" class="message error"></p>
+        </form>
+    </div>
+
+</body>
+</html>

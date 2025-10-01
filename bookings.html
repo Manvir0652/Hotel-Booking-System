@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Bookings</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="welcome-text">Welcome <span th:text="${user.name}"></span></span>
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/logout" class="nav-btn">Logout</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="content-container">
+        <h1>MY BOOKINGS</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Booking Date</th>
+                    <th>Paid</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="booking : ${bookings}">
+                    <td th:text="${booking.hotel != null ? booking.hotel.name : 'N/A'}"></td>
+                    <td th:text="${booking.bookingDate != null ? booking.bookingDate : 'N/A'}"></td>
+                    <td>
+                        <span th:if="${booking.paid}" class="paid-status">✔ Yes</span>
+                        <span th:if="${!booking.paid}" class="unpaid-status">✘ No</span>
+                    </td>
+                    <td>
+                        <!-- Cancel -->
+                        <form th:action="@{/cancel}" method="post" style="display:inline;">
+                            <input type="hidden" name="bookingId" th:value="${booking.id}" />
+                            <button type="submit" class="btn cancel">Cancel</button>
+                        </form>
+
+                        <!-- Mock Pay -->
+                        <form th:if="${!booking.paid}" th:action="@{/pay}" method="post" style="display:inline;">
+                            <input type="hidden" name="bookingId" th:value="${booking.id}" />
+                            <button type="submit" class="btn pay">Pay</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p th:if="${message}" th:text="${message}" class="message success"></p>
+        <p th:if="${error}" th:text="${error}" class="message error"></p>
+    </div>
+
+</body>
+</html>

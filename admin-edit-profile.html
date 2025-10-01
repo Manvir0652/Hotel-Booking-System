@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Admin Profile</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="home-body"> <!-- same as your dashboard body for dark theme -->
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="welcome-text">Admin: <span th:text="${admin.name}"></span></span>
+        <a th:href="@{/admin}" class="nav-btn">Dashboard</a>
+        <a href="/logout" class="nav-btn">Logout</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <h1 class="welcome-neon">Edit Profile</h1>
+
+        <div class="form-box">
+            <form th:action="@{/admin/profile/update}" th:object="${admin}" method="post">
+                <label>Name:</label>
+                <input type="text" th:field="*{name}" required />
+
+                <label>Email:</label>
+                <input type="email" th:field="*{email}" required />
+
+                <label>Password:</label>
+                <input type="password" th:field="*{password}" required />
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

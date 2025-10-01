@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="welcome-text">Admin: <span th:text="${admin.name}"></span></span>
+        
+        <a href="/logout" class="nav-btn">Logout</a>
+        <a th:href="@{/admin/profile/edit}" class="nav-btn">Edit Profile</a>
+    </div>
+
+    <!-- Page Heading -->
+    <div class="content-container">
+        <h1 class="welcome-neon">Admin Dashboard</h1>
+
+
+        
+
+        <!-- Add New Hotel Form -->
+        <div class="form-box">
+            <h2>Add New Hotel</h2>
+            <form th:action="@{/admin/hotels/add}" method="post">
+                <label>Hotel Name</label>
+                <input type="text" name="name" required>
+
+                <label>Location</label>
+                <input type="text" name="location" required>
+
+                <label>Available Rooms</label>
+                <input type="number" name="availableRooms" required>
+
+                <button type="submit">Add Hotel</button>
+            </form>
+        </div>
+
+        <!-- Existing Hotels Table -->
+        <h2 style="margin-top:40px;">HOTELS</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Available Rooms</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="hotel : ${hotels}">
+                    <td th:text="${hotel.name}"></td>
+                    <td th:text="${hotel.location}"></td>
+                    <td th:text="${hotel.availableRooms}"></td>
+                    <td>
+                        <form th:action="@{/admin/hotels/delete}" method="post" style="display:inline;">
+                            <input type="hidden" name="id" th:value="${hotel.id}" />
+                            <button type="submit" class="btn cancel">Delete</button>
+                        </form>
+                        <a th:href="@{/admin/hotels/edit/{id}(id=${hotel.id})}" class="nav-btn">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

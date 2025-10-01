@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <!-- Add this in <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <div class="welcome-wrapper">
+    <div class="background" th:style="|background-image: url('@{/images/994869-blue-hotel-neon-window-night-cyan-neon-glow-dark.jpg});|"></div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="site-name">TRAVELIX</div>
+        <a href="/hotels" class="nav-btn">View Hotels</a>
+        <a href="/bookings" class="nav-btn">My Bookings</a>
+        <a href="/logout" class="nav-btn">Logout</a>
+        <a href="/profile" class="nav-btn">Profile</a>
+    </div>
+
+   <!-- Two-column layout -->
+<div class="welcome-container">
+    <div class="welcome-left">
+        <h1 class="welcome-neon">Welcome <span th:text="${user.name}"></span></h1>
+        <p class="intro-text">
+            Discover the best hotels at your fingertips! With our easy-to-use booking system, 
+            you can explore top destinations, check room availability, and manage your bookings 
+            effortlessly — all in one place. Start your journey today!
+        </p>
+    </div>
+    <div class="welcome-right">
+        <img src="/images/Hotels Business Website.png" alt="Hotel" />
+    </div>
+</div>
+    
+</body>
+</html>

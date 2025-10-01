@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotels</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="username">Welcome <span th:text="${user.name}"></span></span>
+        <div class="nav-options">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/logout" class="nav-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Page heading -->
+    <div class="content-container">
+        <h1>Hotels</h1>
+        <p class="intro-text">Explore available hotels and book your stay with ease!</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Available Rooms</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="hotel : ${hotels}">
+                    <td th:text="${hotel.name}"></td>
+                    <td th:text="${hotel.location}"></td>
+                    <td th:text="${hotel.availableRooms}"></td>
+                    <td>
+                        <form th:action="@{/book}" method="post">
+                            <input type="hidden" name="hotelId" th:value="${hotel.id}" />
+                            <button type="submit" class="btn" th:disabled="${hotel.availableRooms == 0}">Book</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p th:if="${message}" th:text="${message}" class="message success"></p>
+        <p th:if="${error}" th:text="${error}" class="message error"></p>
+    </div>
+
+</body>
+</html>

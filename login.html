@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="site-name">TRAVELIX</div>
+        <a href="/hotels" class="nav-btn">View Hotels</a>
+        <a href="/profile" class="nav-btn">Profile</a>
+        <a href="/logout" class="nav-btn">Logout</a>
+    </div>
+    
+    <!-- Form -->
+    <div class="container">
+        <form th:action="@{/login}" method="post" class="form-box">
+            <h1 class="welcome-neon">Login</h1>
+
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Login</button>
+
+            <a href="/register" class="btn">Register</a>
+
+            <p th:if="${message}" th:text="${message}" class="message success"></p>
+            <p th:if="${error}" th:text="${error}" class="message error"></p>
+        </form>
+    </div>
+
+</body>
+</html>

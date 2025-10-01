@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Hotel</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="/admin" class="nav-btn">Dashboard</a>
+        <a href="/logout" class="nav-btn">Logout</a>
+    </div>
+
+    <!-- Page Heading -->
+    <div class="content-container">
+        <h1 class="welcome-neon">Edit Hotel</h1>
+
+        <!-- Edit Hotel Form -->
+        <div class="form-box">
+            <h2>Update Details</h2>
+            <form th:action="@{/admin/hotels/edit}" method="post">
+                <input type="hidden" name="id" th:value="${hotel.id}" />
+
+                <label>Hotel Name</label>
+                <input type="text" name="name" th:value="${hotel.name}" required>
+
+                <label>Location</label>
+                <input type="text" name="location" th:value="${hotel.location}" required>
+
+                <label>Available Rooms</label>
+                <input type="number" name="availableRooms" th:value="${hotel.availableRooms}" required>
+
+                <button type="submit" class="nav-btn">Update Hotel</button>
+                <a href="/admin" class="btn cancel">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

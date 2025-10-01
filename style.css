@@ -1,0 +1,357 @@
+/* ---------- General body styling ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-image: url(https://thumbcdn.123freevectors.com/wp-content/resized/106584-blue-and-white-abstract.jpg); /* path to your image */
+    background-size: cover; /* make it cover the whole screen */
+    background-position: center; /* center the image */
+    background-repeat: no-repeat; /* don’t repeat the image */
+    min-height: 100vh; /* ensure it covers full viewport height */
+    color: #ffffff; /* default text color, adjust if needed */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+    z-index: -1; /* behind all content */
+}
+
+
+/* ---------- Navbar ---------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    gap: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* soft shadow */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+
+.username {
+    font-family: 'Orbitron', sans-serif; /* or any font you want */
+    font-weight: bold;
+    color: #000000;                  /* vibrant blue */
+}
+
+.welcome-text {
+    font-family: 'Orbitron', sans-serif; /* or any font you want */
+    font-weight: bold;
+    color: #000000;
+}
+
+.navbar .site-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #1a73e8;                  /* vibrant blue */
+    margin-right: auto;
+    font-family: Orbitron, sans-serif;
+   
+}
+
+
+
+.navbar .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 15px;
+    border: 1px solid #1a73e8;
+    border-radius: 5px;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: orbitron, sans-serif;
+}
+
+.navbar .nav-btn:hover {
+    background-color: #e8f0fe;        /* light blue hover */
+    border-color: #1a73e8;
+}
+
+/* ---------- Container to center forms ---------- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-height: 100vh;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+/* ---------- Forms ---------- */
+.form-box {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.form-box h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1a73e8;
+    text-align: center;
+    font-family: orbitron, sans-serif;
+}
+
+.form-box label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #555;
+    font-family: orbitron, sans-serif;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9faff;      /* subtle blue tint */
+    color: #2c3e50;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.form-box input::placeholder {
+    color: #999;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-family: orbitron, sans-serif;
+}
+
+.form-box button:hover {
+    background-color: #155ab6;
+}
+
+/* ---------- Links inside forms ---------- */
+.form-box .btn {
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+}
+
+.form-box .btn:hover {
+    color: #155ab6;
+}
+
+/* ---------- Messages ---------- */
+.message {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.message.success {
+    color: #ffffff; 
+    font-weight: bold;
+    font-family: orbitron, sans-serif;
+}
+
+.message.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* ---------- Tables ---------- */
+.content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #ffffff;
+    
+}
+
+.content-container h1 {
+    margin-bottom: 8px;
+    color: #cccfd3;
+    font-size: 50px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.content-container p.intro-text {
+    margin-top: 0;
+    font-size: 40px;
+    font-family: orbitron, sans-serif;
+    color: #ffffff;
+   
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: orbitron, sans-serif;
+    color: #2c3e50;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+table th {
+    border: 1px solid #ddd;
+    padding: 12px;
+    background-color: #f1f6ff;  /* soft blue header */
+    text-align: center;
+}
+
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9faff;
+}
+
+table tr:hover {
+    background-color: #e8f0fe;
+}
+
+table .btn, table .btn.cancel {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #1a73e8;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: orbitron, sans-serif;
+}
+
+table .btn:hover, table .btn.cancel:hover {
+    background-color: #155ab6;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* ---------- Dropdowns ---------- */
+select {
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+select:hover {
+    border-color: #1a73e8;
+}
+
+/* ---------- Welcome container ---------- */
+.welcome-container  {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 50px 50px 50px; /* top padding to avoid navbar */
+    gap: 50px; /* space between text and image */
+    background-image: url('https://thumbcdn.123freevectors.com/wp-content/resized/106584-blue-and-white-abstract.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    color: #1a73e8; /* default text color */
+} /* default text color, adjust if needed */
+
+/* Left side: welcome text */
+.welcome-left {
+    flex: 1;
+}
+
+.welcome-left h1 {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.welcome-left p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Right side: image on same background */
+.welcome-right {
+    flex: 1;
+}
+
+.welcome-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .welcome-container {
+        flex-direction: column;
+        padding: 100px 20px 20px 20px;
+    }
+
+    .welcome-right {
+        margin-top: 30px;
+    }
+
+    .welcome-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-left p {
+        font-size: 1rem;
+    }
+}
